@@ -5,6 +5,9 @@ using UnityEngine;
 public class CardSlot : MonoBehaviour
 {
     public GameObject Monster;
+    public Material Neutral;
+    public Material Selected;
+    public MeshRenderer meshRenderer;
 
     // Start is called before the first frame update
     void Start()
@@ -19,13 +22,20 @@ public class CardSlot : MonoBehaviour
         if (other.name.ToLower().Contains("finger"))
         {
             //spawn monster
-            Monster.SetActive(true);
-            Invoke("HideMonster", 5f);
+            Invoke("ShowMonster", 1f);
+            meshRenderer.material = Selected;
         }
+    }
+
+    void ShowMonster()
+    {
+        Monster.SetActive(true);
+        Invoke("HideMonster", 2f);
     }
 
     void HideMonster()
     {
+        meshRenderer.material = Neutral;
         Monster.SetActive(false);
     }
 }
