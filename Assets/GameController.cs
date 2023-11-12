@@ -34,6 +34,7 @@ public class GameController : NetworkComponent
 
     public static void Player1NextTurnButtonPressed()
     {
+        Instance.GetComponent<NetworkObject>().RequestOwnership();
         if (Instance.turn == Turn.Player1sTurn)
         {
             Instance.turn = Turn.Player1sAttacking;
@@ -45,6 +46,7 @@ public class GameController : NetworkComponent
 
     public static void Player2NextTurnButtonPressed()
     {
+        Instance.GetComponent<NetworkObject>().RequestOwnership();
         if (Instance.turn == Turn.Player2sTurn)
         {
             Instance.turn = Turn.Player2sAttacking;

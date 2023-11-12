@@ -46,28 +46,13 @@ public class CardSlot : NetworkComponent
 
     private void OnTriggerEnter(Collider other)
     {
+        GetComponent<NetworkObject>().RequestOwnership();
         Debug.Log("OnTriggerEnter other.transform.name = "+ other.transform.name);
 
         if (other.name.ToLower().Contains("finger") & !spawn)
         {
             // Change network'ed spawn value
             spawn = true;
-
-            //spawn monster
-            // Invoke("ShowMonster", 1f);
-            // meshRenderer.material = Selected;
         }
-    }
-
-    void ShowMonster()
-    {
-        Monster.SetActive(true);
-        //Invoke("HideMonster", 2f);
-    }
-
-    void HideMonster()
-    {
-        meshRenderer.material = Neutral;
-        Monster.SetActive(false);
     }
 }
