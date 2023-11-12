@@ -6,6 +6,7 @@ TagManager:
   tags:
   - SamplesInfoPanel
   - GameBoard
+  - RoomLight
   layers:
   - Default
   - TransparentFX
@@ -16,9 +17,9 @@ TagManager:
   - Grabber
   - Grabbable
   - Tile
-  - 
-  - 
-  - 
+  - FoundryPlayer
+  - FoundryGrabbable
+  - FoundryHand
   - 
   - 
   - 
