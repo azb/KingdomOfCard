@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour
         Instance.Invoke("ResetAnimationStates", 4f);
     }
 
-    static void ResetAnimationStates()
+    void ResetAnimationStates()
     {
         Unit[] units = FindObjectsOfType<Unit>();
 

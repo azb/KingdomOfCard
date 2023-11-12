@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Foundry.Networking;
 
-public class CardSlot : NetworkComponent
+public class CardSlot : MonoBehaviour
 {
     public GameObject Monster;
     public Material Neutral;
@@ -24,26 +24,6 @@ public class CardSlot : NetworkComponent
         
     }
 
-    /* RegisterProperties is called once when the component is added to the networked object on Awake, 
-     * this is where we connect up all our properties.*/
-    public override void RegisterProperties(List<INetworkProperty> props)
-    {
-        // This callback is called both when the value is set locally and when it is set remotely.
-        _spawn.OnValueChanged += b =>
-        {
-            Monster.SetActive(b);
-            if (b)
-            {
-                meshRenderer.material = Selected;
-            }
-            else
-            {
-                meshRenderer.material = Neutral;
-            }
-        };
-        props.Add(_spawn);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("OnTriggerEnter other.transform.name = "+ other.transform.name);
@@ -59,10 +39,16 @@ public class CardSlot : NetworkComponent
         }
     }
 
-    void ShowMonster()
+    public void ShowMonster()
     {
+        meshRenderer.material = Selected;
         Monster.SetActive(true);
-        //Invoke("HideMonster", 2f);
+        Invoke("SetNeutral", 2f);
+    }
+
+    void SetNeutral()
+    {
+        meshRenderer.material = Neutral;
     }
 
     void HideMonster()
