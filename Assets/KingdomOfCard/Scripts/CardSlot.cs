@@ -9,7 +9,7 @@ public class CardSlot : NetworkComponent
     public Material Neutral;
     public Material Selected;
     public MeshRenderer meshRenderer;
-    private NetworkProperty<bool> _spawn = new(false);
+    public NetworkProperty<bool> _spawn = new(false);
 
     public bool spawn
     {
@@ -48,10 +48,10 @@ public class CardSlot : NetworkComponent
     {
         Debug.Log("OnTriggerEnter other.transform.name = "+ other.transform.name);
 
-        if (other.name.ToLower().Contains("finger"))
+        if (other.name.ToLower().Contains("finger") & !spawn)
         {
             // Change network'ed spawn value
-            spawn = !spawn;
+            spawn = true;
 
             //spawn monster
             // Invoke("ShowMonster", 1f);
