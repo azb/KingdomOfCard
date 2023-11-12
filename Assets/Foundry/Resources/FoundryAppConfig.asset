@@ -12,4 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8602ddc11bda5643b32e6cb7a6d2f27, type: 3}
   m_Name: FoundryAppConfig
   m_EditorClassIdentifier: 
-  modules: []
+  modules:
+  - {fileID: 11400000, guid: 046afd51a4ab7364aa7de8f2e5a52c79, type: 2}

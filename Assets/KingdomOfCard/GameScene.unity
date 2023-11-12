@@ -1679,10 +1679,15 @@ MonoBehaviour:
   OnIDChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   children: []
   Parent: {fileID: 0}
   NetworkComponents: []
   guid: a2026874-5b62-48d1-86c4-5bd8ba48846b
+  nodeAssigned: 0
+  idAssigned: 0
+  completedLoadSteps: 0
+  registeredUnloaded: 0
 --- !u!1 &550841917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1865,10 +1870,15 @@ MonoBehaviour:
   OnIDChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   children: []
   Parent: {fileID: 0}
   NetworkComponents: []
   guid: d636662e-e22a-4ba9-a9e6-69aaa18ac613
+  nodeAssigned: 0
+  idAssigned: 0
+  completedLoadSteps: 0
+  registeredUnloaded: 0
 --- !u!1001 &603193401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1990,10 +2000,15 @@ MonoBehaviour:
   OnIDChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   children: []
   Parent: {fileID: 0}
   NetworkComponents: []
   guid: f2e90bda-fd1a-425e-8f6d-1e53940bcde5
+  nodeAssigned: 0
+  idAssigned: 0
+  completedLoadSteps: 0
+  registeredUnloaded: 0
 --- !u!1 &679993944
 GameObject:
   m_ObjectHideFlags: 0
@@ -2850,10 +2865,15 @@ MonoBehaviour:
   OnIDChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   children: []
   Parent: {fileID: 0}
   NetworkComponents: []
   guid: 0ada16e6-9b12-4eef-a630-c2a68edecf76
+  nodeAssigned: 0
+  idAssigned: 0
+  completedLoadSteps: 0
+  registeredUnloaded: 0
 --- !u!1001 &1078845471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6233,10 +6253,15 @@ MonoBehaviour:
   OnIDChanged:
     m_PersistentCalls:
       m_Calls: []
+    m_CallsDirty: 1
   children: []
   Parent: {fileID: 0}
   NetworkComponents: []
   guid: 84303344-4f48-49dc-9cdb-28c929d4a362
+  nodeAssigned: 0
+  idAssigned: 0
+  completedLoadSteps: 0
+  registeredUnloaded: 0
 --- !u!1001 &3987793903389148612
 PrefabInstance:
   m_ObjectHideFlags: 0

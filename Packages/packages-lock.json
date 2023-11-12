@@ -1,26 +1,5 @@
 {
   "dependencies": {
-    "com.cyberhub.foundry.core": {
-      "version": "https://github.com/FoundryXR/FoundryCore.git?path=package",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.unity.inputsystem": "1.6.1",
-        "com.unity.textmeshpro": "3.0.6",
-        "com.unity.xr.management": "4.3.1",
-        "com.unity.xr.openxr": "1.8.2"
-      },
-      "hash": "d43cfc2f7d6fdcfc246fa44bdced4b5fd57e5134"
-    },
-    "com.cyberhub.foundry.networking.fusion": {
-      "version": "https://github.com/FoundryXR/FusionNetworkProvider.git?path=package",
-      "depth": 0,
-      "source": "git",
-      "dependencies": {
-        "com.cyberhub.foundry.core": "0.2.2-preview"
-      },
-      "hash": "c029a5627605ae8ddb2bc2fa3a77d035e4fec543"
-    },
     "com.unity.2d.sprite": {
       "version": "1.0.0",
       "depth": 0,
@@ -85,15 +64,6 @@
       "depth": 0,
       "source": "registry",
       "dependencies": {},
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.inputsystem": {
-      "version": "1.6.1",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.modules.uielements": "1.0.0"
-      },
       "url": "https://packages.unity.com"
     },
     "com.unity.nuget.mono-cecil": {
@@ -178,15 +148,6 @@
       },
       "url": "https://packages.unity.com"
     },
-    "com.unity.xr.core-utils": {
-      "version": "2.2.1",
-      "depth": 2,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.modules.xr": "1.0.0"
-      },
-      "url": "https://packages.unity.com"
-    },
     "com.unity.xr.legacyinputhelpers": {
       "version": "2.1.10",
       "depth": 2,
@@ -215,18 +176,6 @@
       "source": "registry",
       "dependencies": {
         "com.unity.xr.management": "4.2.0"
-      },
-      "url": "https://packages.unity.com"
-    },
-    "com.unity.xr.openxr": {
-      "version": "1.8.2",
-      "depth": 1,
-      "source": "registry",
-      "dependencies": {
-        "com.unity.xr.management": "4.0.1",
-        "com.unity.xr.legacyinputhelpers": "2.1.2",
-        "com.unity.inputsystem": "1.4.4",
-        "com.unity.xr.core-utils": "2.1.1"
       },
       "url": "https://packages.unity.com"
     },

@@ -10,18 +10,6 @@ public class Health : MonoBehaviourPunCallbacks
     public AudioClip HitAudioClip;
 
     public UnityEvent onDeath;
-    Team _team;
-    Team team
-    {
-        get
-        {
-            if (_team == null)
-            {
-                _team = GetComponent<Team>();
-            }
-            return _team;
-        }
-    }
 
     NetworkedObject _networkedObject;
     NetworkedObject networkedObject
@@ -79,26 +67,23 @@ public class Health : MonoBehaviourPunCallbacks
     public bool destroyed;
     public bool invincible;
 
-    DamageBlinker damageBlinker;
-
     int UpdatesPerSecond = 1;
     float TimeToNextUpdate = 0;
 
     // Use this for initialization
     void Start()
     {
-        damageBlinker = GetComponentInChildren<DamageBlinker>();
         _health = maxHealth;
         if (NetworkSync.IsMasterClient || NetworkSync.PlayingOffline)
         {
             networkedObject.SetSyncedFloat("Health", _health);
         }
     }
-
+    /*
     public override void OnPlayerEnteredRoom(Player newPlayer)
     {
         networkedObject.SetSyncedFloat("Health", _health);
-    }
+    }*/
 
     // Update is called once per frame
     void Update()
@@ -161,17 +146,6 @@ public class Health : MonoBehaviourPunCallbacks
     {
         if (destroyed)
             return;
-
-        //if (healthToAdd < 0 && timeAlive < 5f)
-        //{
-        //    return;
-        //}
-
-        if (healthToAdd < 0 && damageBlinker != null)
-        {
-            HitAudioSource.PlayOneShot(HitAudioClip);
-            damageBlinker.TakeDamage();
-        }
 
         if (NetworkSync.IsMasterClient)
         {

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Foundry.Networking;
 
 public class CardSlot : MonoBehaviour
 {
@@ -9,14 +8,8 @@ public class CardSlot : MonoBehaviour
     public Material Neutral;
     public Material Selected;
     public MeshRenderer meshRenderer;
-    private NetworkProperty<bool> _spawn = new(false);
 
-    public bool spawn
-    {
-        get => _spawn.Value;
-        set => _spawn.Value = value;
-    }
-
+    public bool spawn;
 
     // Start is called before the first frame update
     void Start()

@@ -1,7 +1,5 @@
 {
   "dependencies": {
-    "com.cyberhub.foundry.core": "https://github.com/FoundryXR/FoundryCore.git?path=package",
-    "com.cyberhub.foundry.networking.fusion": "https://github.com/FoundryXR/FusionNetworkProvider.git?path=package",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.collab-proxy": "2.0.5",
     "com.unity.feature.development": "1.0.1",

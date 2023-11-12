@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class KOCPlayer : MonoBehaviour
 {
     public int ID;
     public float Health;

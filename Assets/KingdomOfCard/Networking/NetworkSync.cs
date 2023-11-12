@@ -455,18 +455,5 @@ public class NetworkSync : MonoBehaviourPunCallbacks
     public void RestartSceneRPC()
     {
         ClearScene();
-        GameOverChecker gameOverChecker = FindObjectOfType<GameOverChecker>();
-
-        gameOverChecker.RestartGame();
-
-        PlayerSpawner[] playerSpawner = FindObjectsOfType<PlayerSpawner>();
-
-        for (int i = 0; i < playerSpawner.Length; i++)
-        {
-            playerSpawner[i].SpawnUnits();
-        }
-
-        //int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        //SceneManager.LoadScene(currentSceneIndex);
     }
 }
