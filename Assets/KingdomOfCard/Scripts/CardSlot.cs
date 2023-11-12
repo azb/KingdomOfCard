@@ -30,7 +30,7 @@ public class CardSlot : MonoBehaviour
     void ShowMonster()
     {
         Monster.SetActive(true);
-        Invoke("HideMonster", 2f);
+        //Invoke("HideMonster", 2f);
     }
 
     void HideMonster()
