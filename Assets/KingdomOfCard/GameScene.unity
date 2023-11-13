@@ -986,6 +986,22 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &209544984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209544976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1090013e7b26c2a40b86b9775bf8ccc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabName: 
+  _ownerID: 
+  ShowSyncedVariables: 0
+  SyncedVariablesString: 
 --- !u!1 &230801132
 GameObject:
   m_ObjectHideFlags: 0
@@ -1673,21 +1689,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90285ab44f306144b86669b33bb6afc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nativeScript: {fileID: 0}
-  disconnectBehaviour: 0
-  allowOwnershipTransfer: 1
-  OnIDChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  children: []
-  Parent: {fileID: 0}
-  NetworkComponents: []
-  guid: a2026874-5b62-48d1-86c4-5bd8ba48846b
-  nodeAssigned: 0
-  idAssigned: 0
-  completedLoadSteps: 0
-  registeredUnloaded: 0
 --- !u!1 &550841917
 GameObject:
   m_ObjectHideFlags: 0
@@ -1864,21 +1865,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90285ab44f306144b86669b33bb6afc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nativeScript: {fileID: 0}
-  disconnectBehaviour: 0
-  allowOwnershipTransfer: 1
-  OnIDChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  children: []
-  Parent: {fileID: 0}
-  NetworkComponents: []
-  guid: d636662e-e22a-4ba9-a9e6-69aaa18ac613
-  nodeAssigned: 0
-  idAssigned: 0
-  completedLoadSteps: 0
-  registeredUnloaded: 0
 --- !u!1001 &603193401
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2519,6 +2505,98 @@ Transform:
   m_Father: {fileID: 924659166}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1005174685
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1005174689}
+  - component: {fileID: 1005174688}
+  - component: {fileID: 1005174687}
+  - component: {fileID: 1005174686}
+  m_Layer: 0
+  m_Name: NetworkSyncManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1005174686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005174685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1490cf0109c214cbfab41e6367121c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameBoardNetworkedObject: {fileID: 0}
+  PlayerPrefab: {fileID: 0}
+  SpawnPoints: []
+  TeamColorMaterials: []
+  OnDisconnectedAction:
+    m_PersistentCalls:
+      m_Calls: []
+  disconnectCause: 0
+--- !u!114 &1005174687
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005174685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 3
+  OwnershipTransfer: 0
+  observableSearch: 2
+  ObservedComponents: []
+  sceneViewId: 1
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
+--- !u!114 &1005174688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005174685}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5c1b84a427010e0469ce0df07ab64dbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AutoConnect: 1
+  Version: 1
+  MaxPlayers: 4
+  playerTTL: -1
+--- !u!4 &1005174689
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005174685}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.015751928, y: 0.5236734, z: 0.3762856}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1012369403
 GameObject:
   m_ObjectHideFlags: 0
@@ -2827,21 +2905,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90285ab44f306144b86669b33bb6afc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nativeScript: {fileID: 0}
-  disconnectBehaviour: 0
-  allowOwnershipTransfer: 1
-  OnIDChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  children: []
-  Parent: {fileID: 0}
-  NetworkComponents: []
-  guid: 0ada16e6-9b12-4eef-a630-c2a68edecf76
-  nodeAssigned: 0
-  idAssigned: 0
-  completedLoadSteps: 0
-  registeredUnloaded: 0
 --- !u!1001 &1078845471
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3780,7 +3843,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: e560cb2d3f137ef4ea86a61eae3f9cbb, type: 2}
     - target: {fileID: 919132149155446097, guid: a45df22c73de4314db439989ee63d10b, type: 3}
       propertyPath: m_Name
-      value: CardSlot
+      value: GameBoard
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a45df22c73de4314db439989ee63d10b, type: 3}
@@ -6215,21 +6278,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 90285ab44f306144b86669b33bb6afc8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nativeScript: {fileID: 0}
-  disconnectBehaviour: 0
-  allowOwnershipTransfer: 1
-  OnIDChanged:
-    m_PersistentCalls:
-      m_Calls: []
-    m_CallsDirty: 1
-  children: []
-  Parent: {fileID: 0}
-  NetworkComponents: []
-  guid: 84303344-4f48-49dc-9cdb-28c929d4a362
-  nodeAssigned: 0
-  idAssigned: 0
-  completedLoadSteps: 0
-  registeredUnloaded: 0
 --- !u!1001 &3987793903389148612
 PrefabInstance:
   m_ObjectHideFlags: 0
