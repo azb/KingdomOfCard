@@ -251,6 +251,7 @@ GameObject:
   - component: {fileID: 2941463884586569756}
   - component: {fileID: 1590140393929925609}
   - component: {fileID: 4245127659535888891}
+  - component: {fileID: 1818543291640465627}
   m_Layer: 0
   m_Name: CardSlot
   m_TagString: Untagged
@@ -306,6 +307,7 @@ MonoBehaviour:
   Neutral: {fileID: 2100000, guid: adae1f3298404954babcb908279688be, type: 2}
   Selected: {fileID: 2100000, guid: 3bc248900a2a45b4cb669fe7b8b3c144, type: 2}
   meshRenderer: {fileID: 715598101227788457}
+  spawn: 0
 --- !u!114 &4245127659535888891
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -318,6 +320,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1919f9cd6605f5746992cfdca9463a29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1818543291640465627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7881914016465524727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1090013e7b26c2a40b86b9775bf8ccc9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PrefabName: 
+  _ownerID: 
+  ShowSyncedVariables: 0
+  SyncedVariablesString: 
 --- !u!1001 &2175173814651110445
 PrefabInstance:
   m_ObjectHideFlags: 0
