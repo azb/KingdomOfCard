@@ -85,6 +85,12 @@ public class NetworkSync : MonoBehaviourPunCallbacks
                 {
                     continue;
                 }
+
+                if (!networkedObject.SpawnOnPlayerJoin)
+                {
+                    continue;
+                }
+
                 Debug.Log("Requesting to Instantiate prefab " + networkedObject.PrefabName + " for object : " + networkedObject.transform.name);
                 int id = keyValuePair.Key;
 
@@ -273,6 +279,8 @@ public class NetworkSync : MonoBehaviourPunCallbacks
         newTransform.localPosition = LocalPosition;
 
         NetworkedObject networkedObject = newTransform.gameObject.GetComponent<NetworkedObject>();
+        networkedObject.SpawnOnPlayerJoin = true;
+
         if (networkedObject == null)
         {
             networkedObject = newTransform.gameObject.AddComponent<NetworkedObject>();
@@ -350,6 +358,7 @@ public class NetworkSync : MonoBehaviourPunCallbacks
         newTransform.localPosition = localPosition;
 
         NetworkedObject networkedObject = newTransform.GetComponent<NetworkedObject>();
+        networkedObject.SpawnOnPlayerJoin = true;
 
         if (networkedObject == null)
         {

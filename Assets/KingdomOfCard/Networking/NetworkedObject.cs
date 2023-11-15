@@ -6,6 +6,9 @@ using UnityEngine;
 public class NetworkedObject : MonoBehaviour
 {
     public string PrefabName;
+
+    public bool SpawnOnPlayerJoin = false; //Only spawn on Player join for objects not in the room when the game starts (automatically set to true inside the Create method)
+
     public string _ownerID = "";
     public int OwnerID
     {
