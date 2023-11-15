@@ -9,12 +9,26 @@ public class CardSlot : MonoBehaviour
     public Material Selected;
     public MeshRenderer meshRenderer;
 
-    public bool spawn;
+    NetworkedObject networkedObject;
+
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        Invoke("CheckForUpdate", 1);
+    }
+
+    void CheckForUpdate()
+    {
+        bool characterSpawned = networkedObject.GetSyncedBool("CharacterSpawned");
+
+        if (characterSpawned)
+        {
+            Monster.SetActive(true);
+        }
+
+        Invoke("CheckForUpdate", 1);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -24,7 +38,7 @@ public class CardSlot : MonoBehaviour
         if (other.name.ToLower().Contains("finger"))
         {
             // Change network'ed spawn value
-            spawn = !spawn;
+            networkedObject.SetSyncedBool("CharacterSpawned", true);
 
             //spawn monster
             // Invoke("ShowMonster", 1f);

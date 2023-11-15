@@ -2,8 +2,37 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public enum Turn { Player1sTurn, Player1sAttacking, Player2sTurn, Player2sAttacking };
-    public static Turn turn;
+    public enum Turn { 
+        Player1sTurn = 0, 
+        Player1sAttacking = 1, 
+        Player2sTurn = 2, 
+        Player2sAttacking = 3
+    };
+    public static Turn turn
+    {
+        get
+        {
+            return (Turn)Instance.networkedObject.GetSyncedInt("Turn");
+        }
+        set
+        {
+            Instance.networkedObject.SetSyncedInt("Turn", (int)value);
+        }
+    }
+
+    NetworkedObject _networkedObject;
+    public NetworkedObject networkedObject
+    {
+        get
+        {
+            if (_networkedObject == null)
+            {
+                _networkedObject = GetComponent<NetworkedObject>();
+            }
+            return _networkedObject;
+        }
+    }
+
     public GameObject Player1NextTurnButton;
     public GameObject Player2NextTurnButton;
     public MeshRenderer Player1ButtonRenderer;
