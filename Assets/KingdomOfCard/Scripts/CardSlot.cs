@@ -9,8 +9,19 @@ public class CardSlot : MonoBehaviour
     public Material Selected;
     public MeshRenderer meshRenderer;
 
-    NetworkedObject networkedObject;
 
+    NetworkedObject _networkedObject;
+    public NetworkedObject networkedObject
+    {
+        get
+        {
+            if (_networkedObject == null)
+            {
+                _networkedObject = GetComponent<NetworkedObject>();
+            }
+            return _networkedObject;
+        }
+    }
 
 
     // Start is called before the first frame update
