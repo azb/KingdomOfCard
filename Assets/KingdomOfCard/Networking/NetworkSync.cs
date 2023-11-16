@@ -151,7 +151,7 @@ public class NetworkSync : MonoBehaviourPunCallbacks
         // This method will be called when the connection is lost for any reason.
         Debug.Log("Connection lost. Reason: " + cause);
         // You can perform actions or execute code when the connection is lost here.
-        PlayingOnline = false;
+        //PlayingOnline = false;
         disconnectCause = cause;
         OnDisconnectedAction.Invoke();
     }
