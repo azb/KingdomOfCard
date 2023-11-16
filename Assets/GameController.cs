@@ -14,7 +14,7 @@ public class GameController : MonoBehaviour
         get
         {
             Turn newTurn = (Turn)Instance.networkedObject.GetSyncedInt("Turn");
-            Debug.Log("Getting turn which is " + newTurn);
+            //Debug.Log("Getting turn which is " + newTurn);
             return newTurn;
         }
         set
