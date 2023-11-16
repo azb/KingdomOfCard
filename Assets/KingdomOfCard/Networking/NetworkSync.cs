@@ -392,6 +392,7 @@ public class NetworkSync : MonoBehaviourPunCallbacks
     [PunRPC]
     void SetSyncedVariableRPC(int networkObjectID, string variableName, string variableValue)
     {
+        Debug.Log("Setting synced variable " + variableName + " to " + variableValue+ " for networkObjectID "+ networkObjectID);
         NetworkedObject networkedObject = GetNetworkedObjectWithID(networkObjectID);
         if (networkedObject != null)
         {
@@ -446,16 +447,16 @@ public class NetworkSync : MonoBehaviourPunCallbacks
             Instance.RestartSceneRPC();
         }
     }
-    
+
     public void ClearScene()
     {
         Unit[] allUnits = FindObjectsOfType<Unit>();
-        Debug.Log("ClearScene Called allUnits.Length = "+ allUnits.Length);
+        Debug.Log("ClearScene Called allUnits.Length = " + allUnits.Length);
 
         for (int i = 0; i < allUnits.Length; i++)
         {
             Health health = allUnits[i].GetComponent<Health>();
-            Debug.Log("Setting Health for Unit "+ allUnits[i].transform.name);
+            Debug.Log("Setting Health for Unit " + allUnits[i].transform.name);
             health.SetHealth(-1);
         }
     }
