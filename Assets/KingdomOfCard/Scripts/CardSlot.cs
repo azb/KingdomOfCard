@@ -48,13 +48,13 @@ public class CardSlot : MonoBehaviour
 
         if (other.name.ToLower().Contains("finger"))
         {
-            // Change network'ed spawn value
-            networkedObject.SetSyncedBool("CharacterSpawned", true);
-
-            //spawn monster
-            // Invoke("ShowMonster", 1f);
-            // meshRenderer.material = Selected;
+            CardClicked();
         }
+    }
+
+    public void CardClicked()
+    {
+        networkedObject.SetSyncedBool("CharacterSpawned", true);
     }
 
     public void ShowMonster()

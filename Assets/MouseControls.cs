@@ -17,7 +17,7 @@ public class MouseControls : MonoBehaviour
                     && Input.GetMouseButtonDown(0))
                 {
                     CardSlot cardSlot = hit.collider.gameObject.GetComponent<CardSlot>();
-                    cardSlot.ShowMonster();
+                    cardSlot.CardClicked();
                 }
 
                 if (hit.collider.gameObject.name.Contains("Button")
