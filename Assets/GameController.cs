@@ -72,7 +72,7 @@ public class GameController : MonoBehaviour
         {
             Instance.Player2ButtonRenderer.material = Instance.ButtonDisabledMaterial;
         }
-        Invoke("SetButtonColors", .5f);
+        Invoke("UpdateButtonColors", .5f);
     }
 
     public static void Player1NextTurnButtonPressed()
