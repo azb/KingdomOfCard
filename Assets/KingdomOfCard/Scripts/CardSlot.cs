@@ -27,7 +27,7 @@ public class CardSlot : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Invoke("CheckForUpdate", 1);
+        Invoke("CheckForUpdate", .5f);
     }
 
     void CheckForUpdate()
@@ -39,7 +39,7 @@ public class CardSlot : MonoBehaviour
             Monster.SetActive(true);
         }
 
-        Invoke("CheckForUpdate", 1);
+        Invoke("CheckForUpdate", .5f);
     }
 
     private void OnTriggerEnter(Collider other)

@@ -22,6 +22,7 @@ public class GameController : MonoBehaviour
             Debug.Log("Setting turn to " + value);
             Turn newTurn = value;
             Instance.networkedObject.SetSyncedInt("Turn", (int)newTurn);
+            Instance.UpdateButtonColors();
         }
     }
 
@@ -50,7 +51,7 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         Instance = this;
-        Invoke("UpdateButtonColors", .5f);
+        InvokeRepeating("UpdateButtonColors", .5f, .5f);
     }
 
     void UpdateButtonColors()
@@ -71,8 +72,7 @@ public class GameController : MonoBehaviour
         else
         {
             Instance.Player2ButtonRenderer.material = Instance.ButtonDisabledMaterial;
-        }
-        Invoke("UpdateButtonColors", .5f);
+        }        
     }
 
     public static void Player1NextTurnButtonPressed()
@@ -81,11 +81,6 @@ public class GameController : MonoBehaviour
         {
             turn = Turn.Player1sAttacking;
             Instance.Invoke("Player1FinishedAttacking", 5f);
-            Instance.Player1ButtonRenderer.material = Instance.ButtonDisabledMaterial;
-            TriggerAttackAnimations();
-            //Instance.Player2ButtonRenderer.material = Instance.ButtonEnabledMaterial;
-            //Instance.Player1NextTurnButton.SetActive(false);
-            //Instance.Player2NextTurnButton.SetActive(true);
         }
     }
 
@@ -95,48 +90,6 @@ public class GameController : MonoBehaviour
         {
             turn = Turn.Player2sAttacking;
             Instance.Invoke("Player2FinishedAttacking", 5f);
-            Instance.Player2ButtonRenderer.material = Instance.ButtonDisabledMaterial;
-            TriggerAttackAnimations();
-            //Instance.Player2NextTurnButton.SetActive(false);
-            //Instance.Player1NextTurnButton.SetActive(true);
-        }
-    }
-
-    static void TriggerAttackAnimations()
-    {
-        Unit[] units = FindObjectsOfType<Unit>();
-
-        foreach (Unit unit in units)
-        {
-            if (unit.TeamID == 1 && turn == Turn.Player1sAttacking)
-            {
-                unit.animator.SetBool("Attacking", true);
-            }
-
-            if (unit.TeamID == 2 && turn == Turn.Player2sAttacking)
-            {
-                unit.animator.SetBool("Attacking", true);
-            }
-        }
-
-        Instance.Invoke("ResetAnimationStates", 4f);
-    }
-
-    void ResetAnimationStates()
-    {
-        Unit[] units = FindObjectsOfType<Unit>();
-
-        foreach (Unit unit in units)
-        {
-            if (unit.TeamID == 1 && turn == Turn.Player1sAttacking)
-            {
-                unit.animator.SetBool("Attacking", false);
-            }
-
-            if (unit.TeamID == 2 && turn == Turn.Player2sAttacking)
-            {
-                unit.animator.SetBool("Attacking", false);
-            }
         }
     }
 
