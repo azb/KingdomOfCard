@@ -12,10 +12,13 @@ public class GameController : MonoBehaviour
     {
         get
         {
-            return (Turn)Instance.networkedObject.GetSyncedInt("Turn");
+            Turn newTurn = (Turn)Instance.networkedObject.GetSyncedInt("Turn");
+            Debug.Log("Getting turn which is "+ newTurn);
+            return newTurn;
         }
         set
         {
+            Debug.Log("Setting turn to " + value);
             Instance.networkedObject.SetSyncedInt("Turn", (int)value);
         }
     }
