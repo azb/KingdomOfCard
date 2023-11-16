@@ -19,6 +19,7 @@ using UnityEngine;
 
 //using Photon.Pun;
 using Photon.Realtime;
+using UnityEngine.UI;
 
 namespace Photon.Pun.UtilityScripts
 {
@@ -26,6 +27,8 @@ namespace Photon.Pun.UtilityScripts
     /// <remarks>A custom inspector provides a button to connect in PlayMode, should AutoConnect be false.</remarks>
     public class ConnectAndJoinRandom : MonoBehaviourPunCallbacks
     {
+        public Text DebugLabel;
+
         /// <summary>Connect automatically? If false you can set this to true later on or call ConnectUsingSettings in your own scripts.</summary>
         public bool AutoConnect = true;
 
@@ -62,6 +65,7 @@ namespace Photon.Pun.UtilityScripts
 
         public override void OnConnectedToMaster()
         {
+            DebugLabel.text = "Connected";
             if (PhotonNetwork.ShowDebugs)
                 Debug.Log("OnConnectedToMaster() was called by PUN. This client is now connected to Master Server in region [" + PhotonNetwork.CloudRegion +
                 "] and can join a room. Calling: PhotonNetwork.JoinRandomRoom();");
@@ -70,6 +74,7 @@ namespace Photon.Pun.UtilityScripts
 
         public override void OnJoinedLobby()
         {
+            DebugLabel.text = "Joined Lobby";
             if (PhotonNetwork.ShowDebugs)
                 Debug.Log("OnJoinedLobby(). This client is now connected to Relay in region [" + PhotonNetwork.CloudRegion + "]. This script now calls: PhotonNetwork.JoinRandomRoom();");
             PhotonNetwork.JoinRandomRoom();
@@ -77,6 +82,7 @@ namespace Photon.Pun.UtilityScripts
 
         public override void OnJoinRandomFailed(short returnCode, string message)
         {
+            DebugLabel.text = "Join Random Failed";
             if (PhotonNetwork.ShowDebugs)
                 Debug.Log("OnJoinRandomFailed() was called by PUN. No random room available in region [" + PhotonNetwork.CloudRegion + "], so we create one. Calling: PhotonNetwork.CreateRoom(null, new RoomOptions() {maxPlayers = 4}, null);");
 
@@ -96,6 +102,7 @@ namespace Photon.Pun.UtilityScripts
 
         public override void OnJoinedRoom()
         {
+            DebugLabel.text = "Joined Room";
             if (PhotonNetwork.ShowDebugs)
                 Debug.Log("OnJoinedRoom() called by PUN. Now this client is in a room in region [" + PhotonNetwork.CloudRegion + "]. Game is now running.");
         }
