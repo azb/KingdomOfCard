@@ -208,23 +208,12 @@ public class NetworkSync : MonoBehaviourPunCallbacks
         }
         return networkedObject;
     }
-    //public static bool PlayingOnline
-    //{
-    //    get
-    //    { 
-    //    return !PhotonNetwork.OfflineMode;
-    //    }
-    //}
-
+    
     public static bool PlayingOnline
     {
         get
-        {
-            return (PlayerPrefs.GetInt("playingOnline") == 1);
-        }
-        set
-        {
-            PlayerPrefs.SetInt("playingOnline", Convert.ToInt32(value));
+        { 
+        return !PhotonNetwork.OfflineMode;
         }
     }
 
