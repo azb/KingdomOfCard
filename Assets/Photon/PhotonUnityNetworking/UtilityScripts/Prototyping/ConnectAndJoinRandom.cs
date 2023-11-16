@@ -106,6 +106,10 @@ namespace Photon.Pun.UtilityScripts
             if (PhotonNetwork.ShowDebugs)
                 Debug.Log("OnJoinedRoom() called by PUN. Now this client is in a room in region [" + PhotonNetwork.CloudRegion + "]. Game is now running.");
         }
+        public override void OnPlayerEnteredRoom(Player player)
+        {
+            DebugLabel.text = "A player entered";
+        }
     }
 
 
