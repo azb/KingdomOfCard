@@ -2,10 +2,11 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-    public enum Turn { 
-        Player1sTurn = 0, 
-        Player1sAttacking = 1, 
-        Player2sTurn = 2, 
+    public enum Turn
+    {
+        Player1sTurn = 0,
+        Player1sAttacking = 1,
+        Player2sTurn = 2,
         Player2sAttacking = 3
     };
     public static Turn turn
@@ -13,13 +14,32 @@ public class GameController : MonoBehaviour
         get
         {
             Turn newTurn = (Turn)Instance.networkedObject.GetSyncedInt("Turn");
-            Debug.Log("Getting turn which is "+ newTurn);
+            Debug.Log("Getting turn which is " + newTurn);
             return newTurn;
         }
         set
         {
             Debug.Log("Setting turn to " + value);
-            Instance.networkedObject.SetSyncedInt("Turn", (int)value);
+            Turn newTurn = value;
+            Instance.networkedObject.SetSyncedInt("Turn", (int)newTurn);
+
+            if (newTurn == Turn.Player1sTurn)
+            {
+                Instance.Player1ButtonRenderer.material = Instance.ButtonEnabledMaterial;
+            }
+            else
+            {
+                Instance.Player1ButtonRenderer.material = Instance.ButtonDisabledMaterial;
+            }
+
+            if (newTurn == Turn.Player2sTurn)
+            {
+                Instance.Player2ButtonRenderer.material = Instance.ButtonEnabledMaterial;
+            }
+            else
+            {
+                Instance.Player2ButtonRenderer.material = Instance.ButtonDisabledMaterial;
+            }
         }
     }
 
@@ -125,12 +145,10 @@ public class GameController : MonoBehaviour
     void Player1FinishedAttacking()
     {
         turn = Turn.Player2sTurn;
-        Instance.Player2ButtonRenderer.material = Instance.ButtonEnabledMaterial;
     }
 
     void Player2FinishedAttacking()
     {
         turn = Turn.Player1sTurn;
-        Instance.Player1ButtonRenderer.material = Instance.ButtonEnabledMaterial;
     }
 }
