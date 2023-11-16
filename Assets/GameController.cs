@@ -22,24 +22,6 @@ public class GameController : MonoBehaviour
             Debug.Log("Setting turn to " + value);
             Turn newTurn = value;
             Instance.networkedObject.SetSyncedInt("Turn", (int)newTurn);
-
-            if (newTurn == Turn.Player1sTurn)
-            {
-                Instance.Player1ButtonRenderer.material = Instance.ButtonEnabledMaterial;
-            }
-            else
-            {
-                Instance.Player1ButtonRenderer.material = Instance.ButtonDisabledMaterial;
-            }
-
-            if (newTurn == Turn.Player2sTurn)
-            {
-                Instance.Player2ButtonRenderer.material = Instance.ButtonEnabledMaterial;
-            }
-            else
-            {
-                Instance.Player2ButtonRenderer.material = Instance.ButtonDisabledMaterial;
-            }
         }
     }
 
@@ -68,13 +50,29 @@ public class GameController : MonoBehaviour
     private void Start()
     {
         Instance = this;
-        Invoke("SetButtonColors", 1f);
+        Invoke("UpdateButtonColors", .5f);
     }
 
-    void SetButtonColors()
+    void UpdateButtonColors()
     {
-        Player1ButtonRenderer.material = ButtonEnabledMaterial;
-        Player2ButtonRenderer.material = ButtonDisabledMaterial;
+        if (turn == Turn.Player1sTurn)
+        {
+            Instance.Player1ButtonRenderer.material = Instance.ButtonEnabledMaterial;
+        }
+        else
+        {
+            Instance.Player1ButtonRenderer.material = Instance.ButtonDisabledMaterial;
+        }
+
+        if (turn == Turn.Player2sTurn)
+        {
+            Instance.Player2ButtonRenderer.material = Instance.ButtonEnabledMaterial;
+        }
+        else
+        {
+            Instance.Player2ButtonRenderer.material = Instance.ButtonDisabledMaterial;
+        }
+        Invoke("SetButtonColors", .5f);
     }
 
     public static void Player1NextTurnButtonPressed()
