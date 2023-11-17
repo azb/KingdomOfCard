@@ -2,11 +2,13 @@ using Photon.Pun;
 using Photon.Realtime;
 using System;
 using System.Collections.Generic;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 [DefaultExecutionOrder(-10000)]
+[ExecuteInEditMode]
 public class NetworkSync : MonoBehaviourPunCallbacks
 {
     int viewIDsIssued;
@@ -146,6 +148,8 @@ public class NetworkSync : MonoBehaviourPunCallbacks
 
     public DisconnectCause disconnectCause;
 
+    public NetworkedObject[] initialNetworkedObjects;
+
     public override void OnDisconnected(DisconnectCause cause)
     {
         // This method will be called when the connection is lost for any reason.
@@ -176,7 +180,12 @@ public class NetworkSync : MonoBehaviourPunCallbacks
 
     void Awake()
     {
-        NetworkedObject[] initialNetworkedObjects = FindObjectsOfType<NetworkedObject>();
+        if (Application.isEditor && !Application.isPlaying)
+        {
+            initialNetworkedObjects = FindObjectsOfType<NetworkedObject>();
+            EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
+            return;
+        }
 
         for (int i = 0; i < initialNetworkedObjects.Length; i++)
         {
@@ -208,12 +217,12 @@ public class NetworkSync : MonoBehaviourPunCallbacks
         }
         return networkedObject;
     }
-    
+
     public static bool PlayingOnline
     {
         get
-        { 
-        return !PhotonNetwork.OfflineMode;
+        {
+            return !PhotonNetwork.OfflineMode;
         }
     }
 
@@ -381,7 +390,7 @@ public class NetworkSync : MonoBehaviourPunCallbacks
     [PunRPC]
     void SetSyncedVariableRPC(int networkObjectID, string variableName, string variableValue)
     {
-        Debug.Log("Setting synced variable " + variableName + " to " + variableValue+ " for networkObjectID "+ networkObjectID);
+        Debug.Log("Setting synced variable " + variableName + " to " + variableValue + " for networkObjectID " + networkObjectID);
         NetworkedObject networkedObject = GetNetworkedObjectWithID(networkObjectID);
         if (networkedObject != null)
         {
