@@ -7158,7 +7158,11 @@ MonoBehaviour:
   m_snapPosition: 0
   m_snapOrientation: 0
   m_snapOffset: {fileID: 0}
-  m_grabPoints: []
+  m_grabPoints:
+  - {fileID: 966232443}
+  - {fileID: 1796499444}
+  - {fileID: 1949242363}
+  - {fileID: 466191950}
 --- !u!54 &1949327768
 Rigidbody:
   m_ObjectHideFlags: 0
