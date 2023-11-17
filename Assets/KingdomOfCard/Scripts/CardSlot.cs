@@ -54,7 +54,7 @@ public class CardSlot : MonoBehaviour
 
     public void Reset()
     {
-        Monster.SetActive(false);
+        networkedObject.SetSyncedBool("CharacterSpawned", false);
     }
 
     public void CardClicked()
