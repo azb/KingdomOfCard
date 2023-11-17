@@ -139,6 +139,16 @@ public class GameController : MonoBehaviour
         );
     }
 
+    public void RestartGame()
+    {
+        Debug.Log("Restart Game Button Pressed");
+        CardSlot[] cardSlots = FindObjectsOfType<CardSlot>();
+        for(int i = 0 ; i < cardSlots.Length ; i++)
+        {
+            cardSlots[i].Reset();
+        }
+    }
+
     void UpdateButtonColors()
     {
         if (turn == Turn.Player1sTurn)
