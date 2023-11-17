@@ -16,7 +16,12 @@ public class RotateBasedOnPlayer : MonoBehaviourPunCallbacks
     {
         if (!PhotonNetwork.IsMasterClient)
         {
+            Debug.Log("Is not master so rotating");
             transform.localRotation = Quaternion.Euler(0,180,0);
+        }
+        else
+        {
+            Debug.Log("Is master so not rotating");
         }
     }
 
