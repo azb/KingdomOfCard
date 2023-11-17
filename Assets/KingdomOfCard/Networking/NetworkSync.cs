@@ -2,7 +2,9 @@ using Photon.Pun;
 using Photon.Realtime;
 using System;
 using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor.SceneManagement;
+#endif
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
@@ -180,12 +182,14 @@ public class NetworkSync : MonoBehaviourPunCallbacks
 
     void Awake()
     {
+#if UNITY_EDITOR
         if (Application.isEditor && !Application.isPlaying)
         {
             initialNetworkedObjects = FindObjectsOfType<NetworkedObject>();
             EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
             return;
         }
+#endif
 
         for (int i = 0; i < initialNetworkedObjects.Length; i++)
         {
