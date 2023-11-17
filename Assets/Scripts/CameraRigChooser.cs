@@ -11,7 +11,7 @@ public class CameraRigChooser : MonoBehaviour
     public Mode mode = Mode.VR;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         if (!Application.isEditor)
         {

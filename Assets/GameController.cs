@@ -165,7 +165,7 @@ public class GameController : MonoBehaviour
         if (turn == Turn.Player1sTurn)
         {
             turn = Turn.Player1sAttacking;
-            Instance.Invoke("Player1FinishedAttacking", 5f);
+            Instance.Invoke("Player1FinishedAttacking", 3f);
         }
     }
 
@@ -174,7 +174,7 @@ public class GameController : MonoBehaviour
         if (turn == Turn.Player2sTurn)
         {
             turn = Turn.Player2sAttacking;
-            Instance.Invoke("Player2FinishedAttacking", 5f);
+            Instance.Invoke("Player2FinishedAttacking", 3f);
         }
     }
 

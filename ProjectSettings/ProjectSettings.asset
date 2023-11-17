@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: KOC
-  productName: KingdomOfCard
+  productName: KingdomOfCard_v2
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.14901961, g: 0.5686275, b: 0.6666667, a: 1}
@@ -135,7 +135,9 @@ PlayerSettings:
     16:9: 1
     Others: 1
   bundleVersion: 0.1
-  preloadedAssets: []
+  preloadedAssets:
+  - {fileID: -6783359586480922790, guid: 1ab366bece47d134285416c349968eac, type: 2}
+  - {fileID: 11400000, guid: 26858ed2021504543b1a7ec14b718d53, type: 2}
   metroInputSource: 0
   wsaTransparentSwapchain: 0
   m_HolographicPauseOnTrackingLoss: 1
