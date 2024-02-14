@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CardSlot : MonoBehaviour
@@ -34,17 +32,14 @@ public class CardSlot : MonoBehaviour
     {
         bool characterSpawned = networkedObject.GetSyncedBool("CharacterSpawned");
 
-        if (characterSpawned)
-        {
-            Monster.SetActive(true);
-        }
+        Monster.SetActive(characterSpawned);
 
         Invoke("CheckForUpdate", .5f);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("OnTriggerEnter other.transform.name = "+ other.transform.name);
+        Debug.Log("OnTriggerEnter other.transform.name = " + other.transform.name);
 
         if (other.name.ToLower().Contains("finger"))
         {
