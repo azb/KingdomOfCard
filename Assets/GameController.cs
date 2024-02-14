@@ -67,12 +67,10 @@ public class GameController : MonoBehaviour
         get
         {
             Turn newTurn = (Turn)Instance.networkedObject.GetSyncedInt("Turn");
-            Debug.Log("Getting turn which is " + newTurn);
             return newTurn;
         }
         set
         {
-            Debug.Log("Setting turn to " + value);
             Turn newTurn = value;
             Instance.networkedObject.SetSyncedInt("Turn", (int)newTurn);
             Instance.UpdateButtonColors();
