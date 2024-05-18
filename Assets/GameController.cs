@@ -212,12 +212,14 @@ public class GameController : MonoBehaviour
     {
         turn = Turn.Player2sTurn;
         Player2Health -= 10;
+        Player2Mana += 25;
     }
 
     void Player2FinishedAttacking()
     {
         turn = Turn.Player1sTurn;
         Player1Health -= 10;
+        Player1Mana += 25;
     }
 
     public bool CurrentPlayerHasMana(int mana)
