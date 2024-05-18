@@ -77,7 +77,7 @@ public class CardSlot : MonoBehaviour
         {
             cardClicked = true;
             networkedObject.SetSyncedBool("ParticleEffectPlayed", true);
-            Invoke("SpawnCharacter", 2);
+            Invoke("SpawnCharacter", 1);
         }
     }
 
