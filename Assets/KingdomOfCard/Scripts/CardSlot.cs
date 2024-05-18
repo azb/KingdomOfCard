@@ -64,6 +64,7 @@ public class CardSlot : MonoBehaviour
     public void Reset()
     {
         networkedObject.SetSyncedBool("CharacterSpawned", false);
+        networkedObject.SetSyncedBool("ParticleEffectPlayed", false);
         cardClicked = false;
         particleEffectPlayedPrev = false;
     }
