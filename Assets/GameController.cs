@@ -2,6 +2,11 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
+    float Player1DrawHealth;
+    float Player2DrawHealth;
+    float Player1DrawMana;
+    float Player2DrawMana;
+
     public float Player1Health
     {
         get
@@ -108,6 +113,12 @@ public class GameController : MonoBehaviour
         Player1Mana = 100;
         Player2Mana = 100;
 
+
+        Player1DrawHealth = 100;
+        Player2DrawHealth = 100;
+        Player1DrawMana = 100;
+        Player2DrawMana = 100;
+
         Instance = this;
         InvokeRepeating("UpdateButtonColors", .5f, .5f);
 
@@ -116,24 +127,29 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
+        Player1DrawHealth = Player1DrawHealth + (Player1Health - Player1DrawHealth) * Time.deltaTime;
+        Player2DrawHealth = Player2DrawHealth + (Player2Health - Player2DrawHealth) * Time.deltaTime;
+        Player1DrawMana = Player1DrawMana + (Player1Mana - Player1DrawMana) * Time.deltaTime;
+        Player2DrawMana = Player2DrawMana + (Player2Mana - Player2DrawMana) * Time.deltaTime;
+
         Player1HealthBar.localScale = Vector3.Scale(
             StartBarScale,
-            new Vector3(Player1Health / 100f, 1, 1)
+            new Vector3(Player1DrawHealth / 100f, 1, 1)
         );
 
         Player2HealthBar.localScale = Vector3.Scale(
             StartBarScale,
-            new Vector3(Player2Health / 100f, 1, 1)
+            new Vector3(Player2DrawHealth / 100f, 1, 1)
         );
 
         Player1ManaBar.localScale = Vector3.Scale(
             StartBarScale,
-            new Vector3(Player1Mana / 100f, 1, 1)
+            new Vector3(Player1DrawMana / 100f, 1, 1)
         );
 
         Player2ManaBar.localScale = Vector3.Scale(
             StartBarScale,
-            new Vector3(Player2Mana / 100f, 1, 1)
+            new Vector3(Player2DrawMana / 100f, 1, 1)
         );
     }
 
