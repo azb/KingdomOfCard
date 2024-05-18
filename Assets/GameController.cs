@@ -219,4 +219,24 @@ public class GameController : MonoBehaviour
         turn = Turn.Player1sTurn;
         Player1Health -= 10;
     }
+
+    public bool CurrentPlayerHasMana(int mana)
+    {
+        if (turn == Turn.Player1sTurn)
+            return Player1Mana >= mana;
+
+        return Player2Mana >= mana;
+    }
+
+    public void SubtractManaFromCurrentPlayer(int mana)
+    {
+        if (turn == Turn.Player1sTurn)
+        {
+            Player1Mana -= mana;
+        }
+        else
+        {
+            Player2Mana -= mana;
+        }
+    }
 }

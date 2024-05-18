@@ -75,9 +75,13 @@ public class CardSlot : MonoBehaviour
     {
         if (GameController.turn == turnThisCardSlotCanBeUsed && !cardClicked)
         {
-            cardClicked = true;
-            networkedObject.SetSyncedBool("ParticleEffectPlayed", true);
-            Invoke("SpawnCharacter", 1);
+            if (GameController.Instance.CurrentPlayerHasMana(75))
+            {
+                GameController.Instance.SubtractManaFromCurrentPlayer(75);
+                cardClicked = true;
+                networkedObject.SetSyncedBool("ParticleEffectPlayed", true);
+                Invoke("SpawnCharacter", 1);
+            }
         }
     }
 
