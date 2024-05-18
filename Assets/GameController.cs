@@ -218,6 +218,7 @@ public class GameController : MonoBehaviour
         }
         Player2Health = Mathf.Max(0, Player2Health);
         Player2Mana += 25;
+        Player2Mana = Mathf.Min(100, Player2Mana);
     }
 
     void Player2FinishedAttacking()
