@@ -6306,12 +6306,12 @@ GameObject:
   - component: {fileID: 1748368919}
   - component: {fileID: 1748368918}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Connection Debug Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1748368918
 MonoBehaviour:
   m_ObjectHideFlags: 0
