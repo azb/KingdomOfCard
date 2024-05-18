@@ -8,6 +8,7 @@ public class CardSlot : MonoBehaviour
     public MeshRenderer meshRenderer;
     public GameObject glow;
     public ParticleSystem spawnParticleSystem;
+    bool particleEffectPlayedPrev = false;
 
     public GameController.Turn turnThisCardSlotCanBeUsed;
 
@@ -23,8 +24,7 @@ public class CardSlot : MonoBehaviour
             return _networkedObject;
         }
     }
-
-
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -34,6 +34,12 @@ public class CardSlot : MonoBehaviour
     private void Update()
     {
         glow.SetActive(GameController.turn == turnThisCardSlotCanBeUsed);
+
+        if (networkedObject.GetSyncedBool("ParticleEffectPlayed") == true && !particleEffectPlayedPrev)
+        {
+            particleEffectPlayedPrev = true;
+            spawnParticleSystem.Play();
+        }
     }
 
     void CheckForUpdate()
@@ -59,6 +65,7 @@ public class CardSlot : MonoBehaviour
     {
         networkedObject.SetSyncedBool("CharacterSpawned", false);
         cardClicked = false;
+        particleEffectPlayedPrev = false;
     }
 
     bool cardClicked = false;
@@ -68,7 +75,7 @@ public class CardSlot : MonoBehaviour
         if (GameController.turn == turnThisCardSlotCanBeUsed && !cardClicked)
         {
             cardClicked = true;
-            spawnParticleSystem.Play();
+            networkedObject.SetSyncedBool("ParticleEffectPlayed", true);
             Invoke("SpawnCharacter", 2);
         }
     }
