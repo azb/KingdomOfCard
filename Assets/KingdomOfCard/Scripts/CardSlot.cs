@@ -48,8 +48,7 @@ public class CardSlot : MonoBehaviour
     {
         Debug.Log("OnTriggerEnter other.transform.name = " + other.transform.name);
 
-        if (other.name.ToLower().Contains("finger")
-            && GameController.turn == turnThisCardSlotCanBeUsed)
+        if (other.name.ToLower().Contains("finger"))
         {
             CardClicked();
         }
@@ -62,7 +61,10 @@ public class CardSlot : MonoBehaviour
 
     public void CardClicked()
     {
-        networkedObject.SetSyncedBool("CharacterSpawned", true);
+        if (GameController.turn == turnThisCardSlotCanBeUsed)
+        {
+            networkedObject.SetSyncedBool("CharacterSpawned", true);
+        }
     }
 
     public void ShowMonster()
