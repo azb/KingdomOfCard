@@ -217,7 +217,7 @@ public class GameController : MonoBehaviour
             //Show game over screen, Player 1 won!
         }
         Player2Health = Mathf.Max(0, Player2Health);
-        Player2Mana += 25;
+        Player2Mana += 40;
         Player2Mana = Mathf.Min(100, Player2Mana);
     }
 
@@ -230,7 +230,7 @@ public class GameController : MonoBehaviour
             //Show game over screen, Player 2 won!
         }
         Player1Health = Mathf.Max(0, Player1Health);
-        Player1Mana += 25;
+        Player1Mana += 40;
         Player1Mana = Mathf.Min(100, Player1Mana);
     }
 
