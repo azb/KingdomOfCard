@@ -35,9 +35,9 @@ namespace Photon.Pun.UtilityScripts
         /// <summary>Used as PhotonNetwork.GameVersion.</summary>
         public byte Version = 1;
 
-		/// <summary>Max number of players allowed in room. Once full, a new room will be created by the next connection attemping to join.</summary>
-		[Tooltip("The max number of players allowed in room. Once full, a new room will be created by the next connection attemping to join.")]
-		public byte MaxPlayers = 4;
+        /// <summary>Max number of players allowed in room. Once full, a new room will be created by the next connection attemping to join.</summary>
+        [Tooltip("The max number of players allowed in room. Once full, a new room will be created by the next connection attemping to join.")]
+        public byte MaxPlayers = 4;
 
         public int playerTTL = -1;
 
@@ -46,8 +46,22 @@ namespace Photon.Pun.UtilityScripts
             if (this.AutoConnect)
             {
                 this.ConnectNow();
+                Invoke("CheckConnection", 15f);
             }
         }
+
+        void CheckConnection()
+        {
+            //Check if the photon network is still connected and joined in a room
+            //if not, attempt to reconnect and join a room
+            if (!PhotonNetwork.IsConnected || !PhotonNetwork.InRoom)
+            {
+                this.ConnectNow();
+            }
+
+            Invoke("CheckConnection", 10f);
+        }
+
 
         public void ConnectNow()
         {
