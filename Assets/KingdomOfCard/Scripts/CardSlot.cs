@@ -46,10 +46,7 @@ public class CardSlot : MonoBehaviour
     {
         int characterSpawned = networkedObject.GetSyncedInt("CharacterSpawned");
 
-        for (int i = 0; i < Monster.Length; i++)
-        {
-            Monster[i].SetActive(characterSpawned == i);
-        }
+        UpdateCharactersVisibility();
 
         Invoke("CheckForUpdate", .5f);
     }
@@ -97,14 +94,19 @@ public class CardSlot : MonoBehaviour
     {
         meshRenderer.material = Selected;
 
+        UpdateCharactersVisibility();
+
+        Invoke("SetNeutral", 2f);
+    }
+
+    void UpdateCharactersVisibility()
+    {
         int characterSpawned = networkedObject.GetSyncedInt("CharacterSpawned");
 
         for (int i = 0; i < Monster.Length; i++)
         {
-            Monster[i].SetActive(characterSpawned == (i+1));
+            Monster[i].SetActive(characterSpawned == (i + 1));
         }
-
-        Invoke("SetNeutral", 2f);
     }
 
     void SetNeutral()
