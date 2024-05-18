@@ -139,6 +139,7 @@ public class GameController : MonoBehaviour
 
     public void RestartGame()
     {
+        turn = 0;
         Player1Health = 100;
         Player2Health = 100;
         Player1Mana = 100;
