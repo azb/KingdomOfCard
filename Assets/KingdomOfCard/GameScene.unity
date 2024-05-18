@@ -1961,6 +1961,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 449447813}
     m_Modifications:
+    - target: {fileID: 1590140393929925609, guid: 1fc159a1d7a53fe41be799e8a5796e58, type: 3}
+      propertyPath: turnThisCardSlotCanBeUsed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3082787813505725398, guid: 1fc159a1d7a53fe41be799e8a5796e58, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -2946,6 +2950,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 449447813}
     m_Modifications:
+    - target: {fileID: 1590140393929925609, guid: 1fc159a1d7a53fe41be799e8a5796e58, type: 3}
+      propertyPath: turnThisCardSlotCanBeUsed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3082787813505725398, guid: 1fc159a1d7a53fe41be799e8a5796e58, type: 3}
       propertyPath: m_RootOrder
       value: 10
@@ -3455,6 +3463,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 449447813}
     m_Modifications:
+    - target: {fileID: 1590140393929925609, guid: 1fc159a1d7a53fe41be799e8a5796e58, type: 3}
+      propertyPath: turnThisCardSlotCanBeUsed
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3082787813505725398, guid: 1fc159a1d7a53fe41be799e8a5796e58, type: 3}
       propertyPath: m_RootOrder
       value: 9

@@ -6,7 +6,9 @@ public class CardSlot : MonoBehaviour
     public Material Neutral;
     public Material Selected;
     public MeshRenderer meshRenderer;
+    public GameObject glow;
 
+    public GameController.Turn turnThisCardSlotCanBeUsed;
 
     NetworkedObject _networkedObject;
     public NetworkedObject networkedObject
@@ -28,6 +30,11 @@ public class CardSlot : MonoBehaviour
         Invoke("CheckForUpdate", .5f);
     }
 
+    private void Update()
+    {
+        glow.SetActive(GameController.turn == turnThisCardSlotCanBeUsed);
+    }
+
     void CheckForUpdate()
     {
         bool characterSpawned = networkedObject.GetSyncedBool("CharacterSpawned");
@@ -41,7 +48,8 @@ public class CardSlot : MonoBehaviour
     {
         Debug.Log("OnTriggerEnter other.transform.name = " + other.transform.name);
 
-        if (other.name.ToLower().Contains("finger"))
+        if (other.name.ToLower().Contains("finger")
+            && GameController.turn == turnThisCardSlotCanBeUsed)
         {
             CardClicked();
         }
