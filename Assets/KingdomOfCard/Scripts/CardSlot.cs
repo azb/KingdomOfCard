@@ -7,6 +7,7 @@ public class CardSlot : MonoBehaviour
     public Material Selected;
     public MeshRenderer meshRenderer;
     public GameObject glow;
+    public ParticleSystem spawnParticleSystem;
 
     public GameController.Turn turnThisCardSlotCanBeUsed;
 
@@ -57,14 +58,24 @@ public class CardSlot : MonoBehaviour
     public void Reset()
     {
         networkedObject.SetSyncedBool("CharacterSpawned", false);
+        cardClicked = false;
     }
+
+    bool cardClicked = false;
 
     public void CardClicked()
     {
-        if (GameController.turn == turnThisCardSlotCanBeUsed)
+        if (GameController.turn == turnThisCardSlotCanBeUsed && !cardClicked)
         {
-            networkedObject.SetSyncedBool("CharacterSpawned", true);
+            cardClicked = true;
+            spawnParticleSystem.Play();
+            Invoke("SpawnCharacter", 2);
         }
+    }
+
+    void SpawnCharacter()
+    {
+        networkedObject.SetSyncedBool("CharacterSpawned", true);
     }
 
     public void ShowMonster()
