@@ -212,6 +212,11 @@ public class GameController : MonoBehaviour
     {
         turn = Turn.Player2sTurn;
         Player2Health -= 10;
+        if (Player2Health <= 0)
+        {
+            //Show game over screen, Player 1 won!
+        }
+        Player2Health = Mathf.Max(0, Player2Health);
         Player2Mana += 25;
     }
 
@@ -219,7 +224,13 @@ public class GameController : MonoBehaviour
     {
         turn = Turn.Player1sTurn;
         Player1Health -= 10;
+        if (Player1Health <= 0)
+        {
+            //Show game over screen, Player 2 won!
+        }
+        Player1Health = Mathf.Max(0, Player1Health);
         Player1Mana += 25;
+        Player1Mana = Mathf.Min(100, Player1Mana);
     }
 
     public bool CurrentPlayerHasMana(int mana)
