@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CardSlot : MonoBehaviour
 {
-    public GameObject Monster;
+    public GameObject[] Monster;
     public Material Neutral;
     public Material Selected;
     public MeshRenderer meshRenderer;
@@ -24,7 +24,7 @@ public class CardSlot : MonoBehaviour
             return _networkedObject;
         }
     }
-    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,9 +44,12 @@ public class CardSlot : MonoBehaviour
 
     void CheckForUpdate()
     {
-        bool characterSpawned = networkedObject.GetSyncedBool("CharacterSpawned");
+        int characterSpawned = networkedObject.GetSyncedInt("CharacterSpawned");
 
-        Monster.SetActive(characterSpawned);
+        for (int i = 0; i < Monster.Length; i++)
+        {
+            Monster[i].SetActive(characterSpawned == i);
+        }
 
         Invoke("CheckForUpdate", .5f);
     }
@@ -63,7 +66,7 @@ public class CardSlot : MonoBehaviour
 
     public void Reset()
     {
-        networkedObject.SetSyncedBool("CharacterSpawned", false);
+        networkedObject.SetSyncedInt("CharacterSpawned", -1);
         networkedObject.SetSyncedBool("ParticleEffectPlayed", false);
         cardClicked = false;
         particleEffectPlayedPrev = false;
@@ -87,13 +90,20 @@ public class CardSlot : MonoBehaviour
 
     void SpawnCharacter()
     {
-        networkedObject.SetSyncedBool("CharacterSpawned", true);
+        networkedObject.SetSyncedInt("CharacterSpawned", Random.Range(1, Monster.Length));
     }
 
     public void ShowMonster()
     {
         meshRenderer.material = Selected;
-        Monster.SetActive(true);
+
+        int characterSpawned = networkedObject.GetSyncedInt("CharacterSpawned");
+
+        for (int i = 0; i < Monster.Length; i++)
+        {
+            Monster[i].SetActive(characterSpawned == (i+1));
+        }
+
         Invoke("SetNeutral", 2f);
     }
 
@@ -105,6 +115,10 @@ public class CardSlot : MonoBehaviour
     void HideMonster()
     {
         meshRenderer.material = Neutral;
-        Monster.SetActive(false);
+
+        for (int i = 0; i < Monster.Length; i++)
+        {
+            Monster[i].SetActive(false);
+        }
     }
 }
