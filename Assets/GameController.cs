@@ -139,6 +139,11 @@ public class GameController : MonoBehaviour
 
     public void RestartGame()
     {
+        Player1Health = 100;
+        Player2Health = 100;
+        Player1Mana = 100;
+        Player2Mana = 100;
+
         Debug.Log("Restart Game Button Pressed");
         CardSlot[] cardSlots = FindObjectsOfType<CardSlot>();
         for(int i = 0 ; i < cardSlots.Length ; i++)
